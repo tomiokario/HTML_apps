@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>One Line Sound Diary</title>
+    <script src="js/se.js" type="text/javascript"></script>
+    <script src="js/clock.js" type="text/javascript"></script>
+    <script src="js/switch.js" type="text/javascript"></script>
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/landscape.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body id="body">
+    <div id="header" class="jumbotron">
+        <p>One Line Sound Diary</p>
+    </div>
+
+    <div id="header2">
+        <h3 id="date" class="text-center"></h3>
+    </div>
+
+    <div id="main" class="container">
+        <div id="diary" class="diary container"><br>
+
+            <div id="events">
+                <h2>Events</h2>
+                <input type="radio" name="events" value="hanabi" onclick="getEvents('events'); start(); pic_hanabi();">花火
+                <input type="radio" name="events" value="camp" onclick="getEvents('events'); start(); pic_mountain();">キャンプ
+                <input type="radio" name="events" value="sea" onclick="getEvents('events'); start(); pic_sea();">海　
+            </div><br>
+            
+            <div id="person">
+                <h2>Person</h2>
+                <input type="radio" name="person" value="family" onclick="getPerson('person'); add_person()">家族
+                <input type="radio" name="person" value="friend" onclick="getPerson('person'); add_person()">友達
+                <input type="radio" name="person" value="lover" onclick="getPerson('person'); add_person()">恋人
+            </div><br>
+            
+            <div id="emotion">
+                <h2>Emotion</h2>
+                <input type="radio" name="emotion" value="happy" onclick="getEmotion('emotion'); add_emotion()">楽しい
+                <input type="radio" name="emotion" value="sad" onclick="getEmotion('emotion'); add_emotion()">悲しい
+            </div><br><br>
+            
+            <button onclick="stop()" class="btn btn-dark">stop</button>
+        </div>
+
+        <div id="landscape">
+            <div id="sky">
+                <div id=sun></div>
+            </div>
+            <div id="back">
+                <div id="sankaku1"></div>
+            </div>
+            <div id="ground">
+            </div>
+        </div>
+    </div>
+
+    <audio id="hanabi" preload="auto" loop>
+        <source src="sound/hanabi.wav" type="audio/wav">
+    </audio>
+    <audio id="hanabi_lover" preload="auto" loop>
+        <source src="sound/hanabi_koibito.wav" type="audio/wav">
+    </audio>
+    <audio id="hanabi_friend" preload="auto" loop>
+        <source src="sound/hanabi_tomodachi.wav" type="audio/wav">
+    </audio>
+
+    <audio id="camp" preload="auto" loop>
+        <source src="sound/camp.wav" type="audio/wav">
+    </audio>
+    <audio id="camp_lover" preload="auto" loop>
+        <source src="sound/camp_koibito.wav" type="audio/wav">
+    </audio>
+    <audio id="camp_friend" preload="auto" loop>
+        <source src="sound/camp_tomodachi.wav" type="audio/wav">
+    </audio>
+
+    <audio id="sea" preload="auto" loop>
+        <source src="sound/umi.wav" type="audio/wav">
+    </audio>
+    <audio id="sea_lover" preload="auto" loop>
+        <source src="sound/umi_koibito.wav" type="audio/wav">
+    </audio>
+    <audio id="sea_friend" preload="auto" loop>
+        <source src="sound/umi_tomodachi.wav" type="audio/wav">
+    </audio>
+
+    <audio id="sad" preload="auto" loop>
+        <source src="sound/kanashi.wav" type="audio/wav">
+    </audio>
+    <audio id="happy" preload="auto" loop>
+        <source src="sound/tanoshi.wav" type="audio/wav">
+    </audio>
+
+</body>
